@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
@@ -43,21 +44,23 @@
             this.перейтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.buttonFiltr_ATI = new System.Windows.Forms.Button();
+            this.buttonSort_ATI = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxMaxValue_ATI = new System.Windows.Forms.TextBox();
+            this.textBoxMinValue_ATI = new System.Windows.Forms.TextBox();
+            this.textBoxMiddleValue_ATI = new System.Windows.Forms.TextBox();
+            this.textBoxSum_ATI = new System.Windows.Forms.TextBox();
+            this.textBoxQuantity_ATI = new System.Windows.Forms.TextBox();
             this.buttonAdd_ATI = new System.Windows.Forms.Button();
             this.buttonDelete_ATI = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBoxFilter_ATI = new System.Windows.Forms.ComboBox();
+            this.textBoxFilter_ATI = new System.Windows.Forms.TextBox();
             this.groupBoxSort_ATI = new System.Windows.Forms.GroupBox();
             this.comboBoxSort_ATI = new System.Windows.Forms.ComboBox();
             this.dataGridViewOpenFile_ATI = new System.Windows.Forms.DataGridView();
@@ -84,6 +87,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -131,14 +135,14 @@
             // открытьToolStripMenuItemFile_ATI
             // 
             this.открытьToolStripMenuItemFile_ATI.Name = "открытьToolStripMenuItemFile_ATI";
-            this.открытьToolStripMenuItemFile_ATI.Size = new System.Drawing.Size(224, 26);
+            this.открытьToolStripMenuItemFile_ATI.Size = new System.Drawing.Size(166, 26);
             this.открытьToolStripMenuItemFile_ATI.Text = "Открыть";
             this.открытьToolStripMenuItemFile_ATI.Click += new System.EventHandler(this.открытьToolStripMenuItemFile_ATI_Click);
             // 
             // сохранитьToolStripMenuItemFile_ATI
             // 
             this.сохранитьToolStripMenuItemFile_ATI.Name = "сохранитьToolStripMenuItemFile_ATI";
-            this.сохранитьToolStripMenuItemFile_ATI.Size = new System.Drawing.Size(224, 26);
+            this.сохранитьToolStripMenuItemFile_ATI.Size = new System.Drawing.Size(166, 26);
             this.сохранитьToolStripMenuItemFile_ATI.Text = "Сохранить";
             this.сохранитьToolStripMenuItemFile_ATI.Click += new System.EventHandler(this.сохранитьToolStripMenuItemFile_ATI_Click);
             // 
@@ -198,6 +202,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.buttonFiltr_ATI);
+            this.panel3.Controls.Add(this.buttonSort_ATI);
             this.panel3.Controls.Add(this.groupBox3);
             this.panel3.Controls.Add(this.buttonAdd_ATI);
             this.panel3.Controls.Add(this.buttonDelete_ATI);
@@ -213,6 +219,28 @@
             this.panel3.Size = new System.Drawing.Size(1083, 538);
             this.panel3.TabIndex = 5;
             // 
+            // buttonFiltr_ATI
+            // 
+            this.buttonFiltr_ATI.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonFiltr_ATI.Location = new System.Drawing.Point(871, 336);
+            this.buttonFiltr_ATI.Name = "buttonFiltr_ATI";
+            this.buttonFiltr_ATI.Size = new System.Drawing.Size(200, 30);
+            this.buttonFiltr_ATI.TabIndex = 15;
+            this.buttonFiltr_ATI.Text = "Убрать фильтры";
+            this.buttonFiltr_ATI.UseVisualStyleBackColor = true;
+            this.buttonFiltr_ATI.Click += new System.EventHandler(this.buttonFiltr_ATI_Click);
+            // 
+            // buttonSort_ATI
+            // 
+            this.buttonSort_ATI.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSort_ATI.Location = new System.Drawing.Point(871, 140);
+            this.buttonSort_ATI.Name = "buttonSort_ATI";
+            this.buttonSort_ATI.Size = new System.Drawing.Size(200, 30);
+            this.buttonSort_ATI.TabIndex = 14;
+            this.buttonSort_ATI.Text = "Убрать сортировку";
+            this.buttonSort_ATI.UseVisualStyleBackColor = true;
+            this.buttonSort_ATI.Click += new System.EventHandler(this.buttonSort_ATI_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -221,11 +249,11 @@
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.textBox5);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.textBoxMaxValue_ATI);
+            this.groupBox3.Controls.Add(this.textBoxMinValue_ATI);
+            this.groupBox3.Controls.Add(this.textBoxMiddleValue_ATI);
+            this.groupBox3.Controls.Add(this.textBoxSum_ATI);
+            this.groupBox3.Controls.Add(this.textBoxQuantity_ATI);
             this.groupBox3.Location = new System.Drawing.Point(232, 438);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(851, 100);
@@ -283,45 +311,50 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Максимальное значение";
             // 
-            // textBox6
+            // textBoxMaxValue_ATI
             // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Location = new System.Drawing.Point(639, 58);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(168, 22);
-            this.textBox6.TabIndex = 4;
+            this.textBoxMaxValue_ATI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxMaxValue_ATI.Location = new System.Drawing.Point(639, 58);
+            this.textBoxMaxValue_ATI.Name = "textBoxMaxValue_ATI";
+            this.textBoxMaxValue_ATI.Size = new System.Drawing.Size(168, 22);
+            this.textBoxMaxValue_ATI.TabIndex = 4;
+            this.textBoxMaxValue_ATI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxMaxValue_ATI_KeyUp);
             // 
-            // textBox5
+            // textBoxMinValue_ATI
             // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(442, 58);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(162, 22);
-            this.textBox5.TabIndex = 3;
+            this.textBoxMinValue_ATI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxMinValue_ATI.Location = new System.Drawing.Point(442, 58);
+            this.textBoxMinValue_ATI.Name = "textBoxMinValue_ATI";
+            this.textBoxMinValue_ATI.Size = new System.Drawing.Size(162, 22);
+            this.textBoxMinValue_ATI.TabIndex = 3;
+            this.textBoxMinValue_ATI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxMinValue_ATI_KeyUp);
             // 
-            // textBox4
+            // textBoxMiddleValue_ATI
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(278, 58);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(128, 22);
-            this.textBox4.TabIndex = 2;
+            this.textBoxMiddleValue_ATI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxMiddleValue_ATI.Location = new System.Drawing.Point(278, 58);
+            this.textBoxMiddleValue_ATI.Name = "textBoxMiddleValue_ATI";
+            this.textBoxMiddleValue_ATI.Size = new System.Drawing.Size(128, 22);
+            this.textBoxMiddleValue_ATI.TabIndex = 2;
+            this.textBoxMiddleValue_ATI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxMiddleValue_ATI_KeyUp);
             // 
-            // textBox3
+            // textBoxSum_ATI
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(142, 58);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 1;
+            this.textBoxSum_ATI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSum_ATI.Location = new System.Drawing.Point(142, 58);
+            this.textBoxSum_ATI.Name = "textBoxSum_ATI";
+            this.textBoxSum_ATI.Size = new System.Drawing.Size(100, 22);
+            this.textBoxSum_ATI.TabIndex = 1;
+            this.textBoxSum_ATI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxSum_ATI_KeyUp);
             // 
-            // textBox2
+            // textBoxQuantity_ATI
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(9, 58);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 0;
+            this.textBoxQuantity_ATI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxQuantity_ATI.Location = new System.Drawing.Point(9, 58);
+            this.textBoxQuantity_ATI.Name = "textBoxQuantity_ATI";
+            this.textBoxQuantity_ATI.Size = new System.Drawing.Size(100, 22);
+            this.textBoxQuantity_ATI.TabIndex = 0;
+            this.textBoxQuantity_ATI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxQuantity_ATI_KeyUp);
             // 
             // buttonAdd_ATI
             // 
@@ -353,7 +386,7 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.groupBox2.Controls.Add(this.comboBoxFilter_ATI);
+            this.groupBox2.Controls.Add(this.textBoxFilter_ATI);
             this.groupBox2.Location = new System.Drawing.Point(871, 230);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 100);
@@ -361,13 +394,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Фильтрация";
             // 
-            // comboBoxFilter_ATI
+            // textBoxFilter_ATI
             // 
-            this.comboBoxFilter_ATI.FormattingEnabled = true;
-            this.comboBoxFilter_ATI.Location = new System.Drawing.Point(6, 22);
-            this.comboBoxFilter_ATI.Name = "comboBoxFilter_ATI";
-            this.comboBoxFilter_ATI.Size = new System.Drawing.Size(188, 24);
-            this.comboBoxFilter_ATI.TabIndex = 0;
+            this.textBoxFilter_ATI.Location = new System.Drawing.Point(6, 21);
+            this.textBoxFilter_ATI.Name = "textBoxFilter_ATI";
+            this.textBoxFilter_ATI.Size = new System.Drawing.Size(188, 22);
+            this.textBoxFilter_ATI.TabIndex = 0;
+            this.textBoxFilter_ATI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxFilter_ATI_KeyDown);
+            this.textBoxFilter_ATI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxFilter_ATI_KeyUp);
             // 
             // groupBoxSort_ATI
             // 
@@ -385,12 +419,14 @@
             // 
             this.comboBoxSort_ATI.FormattingEnabled = true;
             this.comboBoxSort_ATI.Items.AddRange(new object[] {
-            "По возрастанию",
-            "По убыванию"});
+            "По возрастанию ( от А до Я )",
+            "По убыванию ( от Я до А )"});
             this.comboBoxSort_ATI.Location = new System.Drawing.Point(6, 21);
             this.comboBoxSort_ATI.Name = "comboBoxSort_ATI";
             this.comboBoxSort_ATI.Size = new System.Drawing.Size(188, 24);
             this.comboBoxSort_ATI.TabIndex = 0;
+            this.comboBoxSort_ATI.SelectedIndexChanged += new System.EventHandler(this.comboBoxSort_ATI_SelectedIndexChanged);
+            this.comboBoxSort_ATI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBoxSort_ATI_KeyDown);
             // 
             // dataGridViewOpenFile_ATI
             // 
@@ -467,7 +503,6 @@
             this.textBoxSearch_ATI.Size = new System.Drawing.Size(781, 22);
             this.textBoxSearch_ATI.TabIndex = 4;
             this.textBoxSearch_ATI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_ATI_KeyDown);
-            this.textBoxSearch_ATI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSearch_ATI_KeyPress);
             this.textBoxSearch_ATI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_ATI_KeyUp);
             // 
             // label1
@@ -499,6 +534,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1083, 639);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -506,7 +542,7 @@
             this.MinimumSize = new System.Drawing.Size(1101, 686);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Каталог списка преподавателей ";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -517,6 +553,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBoxSort_ATI.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOpenFile_ATI)).EndInit();
             this.ResumeLayout(false);
@@ -533,7 +570,6 @@
         private System.Windows.Forms.DataGridView dataGridViewOpenFile_ATI;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBoxSort_ATI;
-        private System.Windows.Forms.ComboBox comboBoxFilter_ATI;
         private System.Windows.Forms.ComboBox comboBoxSort_ATI;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -546,11 +582,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxMaxValue_ATI;
+        private System.Windows.Forms.TextBox textBoxMinValue_ATI;
+        private System.Windows.Forms.TextBox textBoxMiddleValue_ATI;
+        private System.Windows.Forms.TextBox textBoxSum_ATI;
+        private System.Windows.Forms.TextBox textBoxQuantity_ATI;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MenuStrip menuStrip2;
@@ -567,6 +603,9 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog_ATI;
         private System.Windows.Forms.ToolTip toolTip_Warning_ATI;
         private System.Windows.Forms.ToolTip toolTip_Load_ATI;
+        private System.Windows.Forms.Button buttonFiltr_ATI;
+        private System.Windows.Forms.Button buttonSort_ATI;
+        private System.Windows.Forms.TextBox textBoxFilter_ATI;
     }
 }
 

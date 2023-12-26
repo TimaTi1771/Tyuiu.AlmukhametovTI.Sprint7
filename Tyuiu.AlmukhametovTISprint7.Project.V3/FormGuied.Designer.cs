@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.назадToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemBack_ATI = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +53,17 @@
             this.panel1.Size = new System.Drawing.Size(1083, 548);
             this.panel1.TabIndex = 0;
             // 
+            // textBox1
+            // 
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(1083, 548);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "Приветсвую вас \r\n\r\n";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -70,16 +81,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1083, 35);
             this.panel3.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(1083, 548);
-            this.textBox1.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -104,7 +105,7 @@
             // ToolStripMenuItemBack_ATI
             // 
             this.ToolStripMenuItemBack_ATI.Name = "ToolStripMenuItemBack_ATI";
-            this.ToolStripMenuItemBack_ATI.Size = new System.Drawing.Size(224, 26);
+            this.ToolStripMenuItemBack_ATI.Size = new System.Drawing.Size(207, 26);
             this.ToolStripMenuItemBack_ATI.Text = "Вернуться назад";
             this.ToolStripMenuItemBack_ATI.Click += new System.EventHandler(this.ToolStripMenuItemBack_ATI_Click);
             // 
@@ -119,7 +120,7 @@
             // ToolStripMenuItemHelp_ATI
             // 
             this.ToolStripMenuItemHelp_ATI.Name = "ToolStripMenuItemHelp_ATI";
-            this.ToolStripMenuItemHelp_ATI.Size = new System.Drawing.Size(224, 26);
+            this.ToolStripMenuItemHelp_ATI.Size = new System.Drawing.Size(150, 26);
             this.ToolStripMenuItemHelp_ATI.Text = "Открыть";
             this.ToolStripMenuItemHelp_ATI.Click += new System.EventHandler(this.ToolStripMenuItemHelp_ATI_Click);
             // 
